@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Silent Horizon Info Tech — Immersive Websites, Engineered</title>
+
+<meta name="description" content="Silent Horizon Info Tech is a design-led web engineering studio. We build immersive, high-performance websites — WebGL experiences, design systems and interfaces that make ambitious companies unforgettable." />
+<meta name="theme-color" content="#000000" />
+<meta name="author" content="Silent Horizon Info Tech" />
+<link rel="canonical" href="https://silenthorizon.in/" />
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Silent Horizon Info Tech" />
+<meta property="og:title" content="Silent Horizon Info Tech — Immersive Websites, Engineered" />
+<meta property="og:description" content="A design-led web engineering studio building immersive, high-performance websites for companies that refuse to look ordinary." />
+<meta property="og:url" content="https://silenthorizon.in/" />
+<meta property="og:image" content="https://silenthorizon.in/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Silent Horizon Info Tech — a black hole over a spiral galaxy" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Silent Horizon Info Tech" />
+<meta name="twitter:description" content="Immersive websites, engineered. Design-led web craft from Silent Horizon Info Tech." />
+<meta name="twitter:image" content="https://silenthorizon.in/og-image.jpg" />
+
+<!-- Favicon: inline SVG so it ships with the HTML (no extra request) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%235ef0ff'/%3E%3Cstop offset='.5' stop-color='%238b6bff'/%3E%3Cstop offset='1' stop-color='%23ff5fce'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%23050810'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='8' fill='none' stroke='url(%23g)' stroke-width='3' transform='rotate(-24 32 32)'/%3E%3Ccircle cx='32' cy='32' r='9' fill='url(%23g)'/%3E%3C/svg%3E" />
+
+<!-- Typography: Space Grotesk (display) + Inter (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Silent Horizon Info Tech",
+  "url": "https://silenthorizon.in/",
+  "email": "hello@silenthorizon.in",
+  "description": "A design-led web engineering studio building immersive, high-performance websites.",
+  "areaServed": "Worldwide",
+  "knowsAbout": ["Web Design", "WebGL", "Front-end Engineering", "Design Systems", "Technical SEO"]
+}
+</script>
+<noscript>
+  <style>
+    .boot, .cursor-glow, .hero__scroll { display: none !important; }
+    .hero__line > span, .hero__lede, .hero__actions, .hero__meta, [data-reveal] {
+      opacity: 1 !important; transform: none !important;
+    }
+    .no-js-hide { display: none !important; }
+  </style>
+</noscript>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ───────────────────────── Boot overlay ───────────────────────── -->
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot__mark">
+    <svg viewBox="0 0 64 64" width="46" height="46" aria-hidden="true">
+      <defs>
+        <linearGradient id="bootGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#5ef0ff" /><stop offset=".5" stop-color="#8b6bff" /><stop offset="1" stop-color="#ff5fce" />
+        </linearGradient>
+      </defs>
+      <ellipse cx="32" cy="32" rx="24" ry="8.5" fill="none" stroke="url(#bootGrad)" stroke-width="2" transform="rotate(-24 32 32)" />
+      <circle cx="32" cy="32" r="9" fill="url(#bootGrad)" />
+    </svg>
+  </div>
+  <div class="boot__bar"><span></span></div>
+  <p class="boot__label">Aligning the stars</p>
+</div>
+
+<!-- ────────────────────── 3D universe canvas ────────────────────── -->
+<canvas id="universe" aria-hidden="true"></canvas>
+<div class="space-overlay" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<!-- ─────────────────────────── Navigation ───────────────────────── -->
+<header class="nav" id="nav">
+  <div class="nav__inner container">
+    <a class="brand" href="#top" aria-label="Silent Horizon Info Tech — home">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="34" height="34">
+          <defs>
+            <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#5ef0ff" /><stop offset=".5" stop-color="#8b6bff" /><stop offset="1" stop-color="#ff5fce" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="32" cy="32" rx="24" ry="8.5" fill="none" stroke="url(#brandGrad)" stroke-width="2.5" transform="rotate(-24 32 32)" />
+          <circle cx="32" cy="32" r="8.5" fill="url(#brandGrad)" />
+        </svg>
+      </span>
+      <span class="brand__word">
+        <strong>Silent Horizon</strong>
+        <em>Info Tech</em>
+      </span>
+    </a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn--primary btn--sm nav__cta" href="#contact">Enter the Horizon</a>
+    </nav>
+
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<main id="main">
+
+  <!-- ═════════════════════════════ HERO ═════════════════════════════ -->
+  <section class="hero" id="top">
+    <div class="hero__inner container">
+      <p class="eyebrow">
+        <span class="eyebrow__dot" aria-hidden="true"></span>
+        Design-led web engineering studio
+      </p>
+
+      <h1 class="hero__title">
+        <span class="hero__line"><span>We build websites</span></span>
+        <span class="hero__line"><span>that bend <em>starlight</em>.</span></span>
+      </h1>
+
+      <p class="hero__lede">
+        Silent Horizon Info Tech designs and engineers immersive, high-performance
+        websites for companies that refuse to look ordinary. Every pixel intentional.
+        Every interaction felt. Every millisecond earned.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#contact">
+          Enter the Horizon
+          <svg class="btn__arrow" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="#expertise">Explore our expertise</a>
+      </div>
+
+      <ul class="hero__meta">
+        <li><span class="hero__meta-k">Senior-only</span><span class="hero__meta-v">No junior hand-offs</span></li>
+        <li><span class="hero__meta-k">Immersive</span><span class="hero__meta-v">3D, WebGL &amp; motion</span></li>
+        <li><span class="hero__meta-k">Obsessively fast</span><span class="hero__meta-v">Engineered for Core Web Vitals</span></li>
+      </ul>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="hero__scroll-line"></span>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ SIGNAL STRIP ═══════════════════════ -->
+  <div class="signal-strip" aria-hidden="true">
+    <div class="signal-strip__track">
+      <span>Immersive WebGL</span><i></i><span>Design Systems</span><i></i><span>Headless CMS</span><i></i>
+      <span>Core Web Vitals</span><i></i><span>Motion Choreography</span><i></i><span>Technical SEO</span><i></i>
+      <span>Art Direction</span><i></i><span>API Integration</span><i></i>
+      <span>Immersive WebGL</span><i></i><span>Design Systems</span><i></i><span>Headless CMS</span><i></i>
+      <span>Core Web Vitals</span><i></i><span>Motion Choreography</span><i></i><span>Technical SEO</span><i></i>
+      <span>Art Direction</span><i></i><span>API Integration</span><i></i>
+    </div>
+  </div>
+
+  <!-- ═════════════════════════════ ABOUT ═════════════════════════════ -->
+  <section class="section section--veiled" id="about">
+    <div class="container about__grid">
+      <div class="about__copy">
+        <p class="eyebrow" data-reveal><span class="eyebrow__dot" aria-hidden="true"></span>About us</p>
+        <h2 class="section__title" data-reveal style="--d:60ms">
+          A quiet studio<br />at the edge of the <em>visible</em>.
+        </h2>
+        <p class="section__lede" data-reveal style="--d:120ms">
+          Somewhere between the event horizon and the first impression, a decision is made
+          about your company. Silent Horizon exists to make that decision inevitable.
+        </p>
+        <p class="body-text" data-reveal style="--d:180ms">
+          We are a compact team of designers and engineers who treat the web as a medium,
+          not a template. Our work begins with strategy and typography, moves through
+          interaction design, and ends in hand-written, performance-audited code that
+          loads in the blink of an eye — on a phone, in a tunnel, on a five-year-old laptop.
+        </p>
+        <p class="body-text" data-reveal style="--d:240ms">
+          No page builders. No recycled layouts. No layers of plugins pretending to be
+          craft. Just a small number of senior people working directly with you from the
+          first sketch to the final deploy.
+        </p>
+
+        <div class="stat-row" data-reveal style="--d:300ms">
+          <div class="stat"><span class="stat__num">100<span>/100</span></span><span class="stat__label">Lighthouse as a design constraint, not an afterthought</span></div>
+          <div class="stat"><span class="stat__num">3<span>D</span></span><span class="stat__label">Real-time WebGL built in-house, tuned for mobile</span></div>
+          <div class="stat"><span class="stat__num">0<span>&nbsp;templates</span></span><span class="stat__label">Every project begins with a blank canvas</span></div>
+        </div>
+      </div>
+
+      <div class="about__visual" data-reveal style="--d:200ms">
+        <div class="orbit-card glass">
+          <div class="orrery" aria-hidden="true">
+            <svg viewBox="0 0 320 260" role="presentation">
+              <defs>
+                <radialGradient id="coreGrad" cx="34%" cy="30%" r="72%">
+                  <stop offset="0%" stop-color="#ffffff" />
+                  <stop offset="26%" stop-color="#b9fbff" />
+                  <stop offset="62%" stop-color="#8b6bff" />
+                  <stop offset="100%" stop-color="#3b1580" />
+                </radialGradient>
+                <radialGradient id="haloCyan">
+                  <stop offset="0%" stop-color="#5ef0ff" stop-opacity=".95" />
+                  <stop offset="100%" stop-color="#5ef0ff" stop-opacity="0" />
+                </radialGradient>
+                <radialGradient id="haloViolet">
+                  <stop offset="0%" stop-color="#8b6bff" stop-opacity=".95" />
+                  <stop offset="100%" stop-color="#8b6bff" stop-opacity="0" />
+                </radialGradient>
+                <radialGradient id="haloMagenta">
+                  <stop offset="0%" stop-color="#ff5fce" stop-opacity=".95" />
+                  <stop offset="100%" stop-color="#ff5fce" stop-opacity="0" />
+                </radialGradient>
+                <linearGradient id="ringStroke" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#5ef0ff" stop-opacity=".55" />
+                  <stop offset="55%" stop-color="#8b6bff" stop-opacity=".3" />
+                  <stop offset="100%" stop-color="#ff5fce" stop-opacity=".45" />
+                </linearGradient>
+                <filter id="softGlow" x="-120%" y="-120%" width="340%" height="340%">
+                  <feGaussianBlur stdDeviation="6" result="b" />
+                  <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+                </filter>
+              </defs>
+
+              <!-- ambient core glow -->
+              <circle cx="160" cy="130" r="86" fill="url(#haloViolet)" opacity=".34" />
+
+              <!-- orbit planes, tilted into fake 3D -->
+              <g transform="rotate(-14 160 130)" fill="none" stroke="url(#ringStroke)" stroke-width="1">
+                <ellipse cx="160" cy="130" rx="104" ry="38" opacity=".55" />
+                <ellipse cx="160" cy="130" rx="78" ry="28" opacity=".7" />
+                <ellipse cx="160" cy="130" rx="52" ry="19" opacity=".9" />
+              </g>
+
+              <!-- the singularity -->
+              <circle cx="160" cy="130" r="34" fill="url(#haloCyan)" opacity=".35" />
+              <circle cx="160" cy="130" r="17" fill="url(#coreGrad)" filter="url(#softGlow)" />
+
+              <!-- travelling worlds: CSS offset-path follows the same ellipses -->
+              <g transform="rotate(-14 160 130)">
+                <circle r="4.4" fill="url(#haloCyan)">
+                  <animateMotion dur="17s" repeatCount="indefinite"
+                    path="M 108,130 a 52,19 0 1,0 104,0 a 52,19 0 1,0 -104,0" />
+                </circle>
+                <circle r="5" fill="url(#haloViolet)">
+                  <animateMotion dur="27s" repeatCount="indefinite"
+                    path="M 82,130 a 78,28 0 1,0 156,0 a 78,28 0 1,0 -156,0" />
+                </circle>
+                <circle r="4" fill="url(#haloMagenta)">
+                  <animateMotion dur="38s" repeatCount="indefinite"
+                    path="M 264,130 a 104,38 0 1,0 -208,0 a 104,38 0 1,0 208,0" />
+                </circle>
+              </g>
+            </svg>
+          </div>
+          <div class="orbit-card__body">
+            <h3>How we work</h3>
+            <ul class="tick-list">
+              <li>One senior team, start to finish</li>
+              <li>Design and engineering in the same room</li>
+              <li>Weekly momentum, async-friendly</li>
+              <li>Yours to own: code, assets, accounts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ EXPERTISE ══════════════════════════ -->
+  <section class="section section--veiled" id="expertise">
+    <div class="container">
+      <header class="section__head">
+        <p class="eyebrow" data-reveal><span class="eyebrow__dot" aria-hidden="true"></span>Our expertise</p>
+        <h2 class="section__title" data-reveal style="--d:60ms">Capabilities engineered for <em>gravity</em>.</h2>
+        <p class="section__lede" data-reveal style="--d:120ms">
+          Six disciplines that, together, produce websites people remember — and
+          search engines respect.
+        </p>
+      </header>
+
+      <div class="cards">
+        <article class="card glass tilt" data-reveal style="--d:0ms">
+          <span class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 21 7v10l-9 4.5L3 17V7z"/><path d="m3 7 9 4.5L21 7M12 11.5V21.5"/></svg>
+          </span>
+          <h3 class="card__title">Immersive 3D &amp; WebGL</h3>
+          <p class="card__text">Real-time scenes, particle systems and cinematic scroll storytelling that run at sixty frames per second — including on the phone in your visitor's pocket.</p>
+          <span class="card__index">01</span>
+        </article>
+
+        <article class="card glass tilt" data-reveal style="--d:70ms">
+          <span class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h9l5 5v11.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M14 3v6h6"/><path d="M8.5 14.5h7M8.5 17.5h4"/></svg>
+          </span>
+          <h3 class="card__title">Brand &amp; Interface Design</h3>
+          <p class="card__text">Typographic systems, colour discipline and interface craft that make a young company read as an established one — and an established one read as inevitable.</p>
+          <span class="card__index">02</span>
+        </article>
+
+        <article class="card glass tilt" data-reveal style="--d:140ms">
+          <span class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12z"/></svg>
+          </span>
+          <h3 class="card__title">Performance Engineering</h3>
+          <p class="card__text">Sub-second loads, tiny payloads, zero layout shift. We treat Core Web Vitals as a design material and refuse to ship a site that makes people wait.</p>
+          <span class="card__index">03</span>
+        </article>
+
+        <article class="card glass tilt" data-reveal style="--d:210ms">
+          <span class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M8 21h8M12 18v3M7 9h5M7 12.5h3"/></svg>
+          </span>
+          <h3 class="card__title">Headless Builds &amp; CMS</h3>
+          <p class="card__text">Editor-friendly content models on modern headless stacks, so your marketing team can publish freely without ever breaking the design.</p>
+          <span class="card__index">04</span>
+        </article>
+
+        <article class="card glass tilt" data-reveal style="--d:280ms">
+          <span class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c3.5 0 3.5-10 7-10s3.5 10 7 10 4-4 4-4"/><circle cx="3" cy="17" r="1.6"/></svg>
+          </span>
+          <h3 class="card__title">Motion &amp; Micro-interaction</h3>
+          <p class="card__text">Choreographed transitions, magnetic hover states and reveal systems that guide attention instead of competing for it. Motion with a reason.</p>
+          <span class="card__index">05</span>
+        </article>
+
+        <article class="card glass tilt" data-reveal style="--d:350ms">
+          <span class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7.5"/><path d="m16.5 16.5 4.5 4.5"/></svg>
+          </span>
+          <h3 class="card__title">SEO &amp; Discoverability</h3>
+          <p class="card__text">Semantic structure, structured data, clean crawl paths and content architecture — built in from the first commit rather than bolted on at the end.</p>
+          <span class="card__index">06</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PROCESS ═══════════════════════════ -->
+  <section class="section section--veiled" id="process">
+    <div class="container">
+      <header class="section__head">
+        <p class="eyebrow" data-reveal><span class="eyebrow__dot" aria-hidden="true"></span>Process</p>
+        <h2 class="section__title" data-reveal style="--d:60ms">Four stages to a new <em>orbit</em>.</h2>
+      </header>
+
+      <ol class="steps">
+        <li class="step" data-reveal style="--d:0ms">
+          <span class="step__no">01</span>
+          <h3>Signal</h3>
+          <p>We interrogate the business, the audience and the competition until the single sharpest idea is left standing.</p>
+        </li>
+        <li class="step" data-reveal style="--d:90ms">
+          <span class="step__no">02</span>
+          <h3>Orbit</h3>
+          <p>Art direction, typography and interactive prototypes. You see and feel the site before a line of production code exists.</p>
+        </li>
+        <li class="step" data-reveal style="--d:180ms">
+          <span class="step__no">03</span>
+          <h3>Ignition</h3>
+          <p>Hand-built front-end, accessible markup, motion and 3D — reviewed in the browser at every step, not in a deck.</p>
+        </li>
+        <li class="step" data-reveal style="--d:270ms">
+          <span class="step__no">04</span>
+          <h3>Horizon</h3>
+          <p>Launch, measure, refine. We hand over clean code and documentation you fully own — and stay close as you grow.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CONTACT ═══════════════════════════ -->
+  <section class="section section--veiled contact" id="contact">
+    <div class="container contact__grid">
+      <div class="contact__copy">
+        <p class="eyebrow" data-reveal><span class="eyebrow__dot" aria-hidden="true"></span>Contact</p>
+        <h2 class="section__title" data-reveal style="--d:60ms">Begin your <em>ascent</em>.</h2>
+        <p class="section__lede" data-reveal style="--d:120ms">
+          Tell us who you are and what you're building. You'll hear back from a
+          designer or engineer — not a bot — within one business day.
+        </p>
+
+        <ul class="contact__points" data-reveal style="--d:180ms">
+          <li><span aria-hidden="true">↗</span> A considered point of view on your project, free of sales theatre</li>
+          <li><span aria-hidden="true">↗</span> Direct access to the people who will build it</li>
+          <li><span aria-hidden="true">↗</span> NDA-friendly from the first conversation</li>
+        </ul>
+
+        <p class="contact__alt" data-reveal style="--d:240ms">
+          Prefer email? <a href="mailto:hello@silenthorizon.in">hello@silenthorizon.in</a>
+        </p>
+      </div>
+
+      <div class="contact__form-wrap" data-reveal style="--d:160ms">
+        <form class="form glass" id="leadForm" novalidate>
+          <div class="form__head">
+            <h3>Project signal</h3>
+            <p>Two fields. Ten seconds. That's all we need to start.</p>
+          </div>
+
+          <div class="field">
+            <input id="company" name="company" type="text" placeholder=" " autocomplete="organization" required maxlength="120" aria-describedby="companyError" />
+            <label for="company">Company name <span class="req">*</span></label>
+            <span class="field__halo" aria-hidden="true"></span>
+            <span class="field__error" id="companyError"></span>
+          </div>
+
+          <div class="field">
+            <input id="phone" name="phone" type="tel" placeholder=" " autocomplete="tel" inputmode="tel" required maxlength="30" aria-describedby="phoneError" />
+            <label for="phone">Phone number <span class="req">*</span></label>
+            <span class="field__halo" aria-hidden="true"></span>
+            <span class="field__error" id="phoneError"></span>
+          </div>
+
+          <div class="field field--area">
+            <textarea id="idea" name="idea" rows="4" placeholder=" " maxlength="1200"></textarea>
+            <label for="idea">Brief project idea <span class="opt">(optional)</span></label>
+            <span class="field__halo" aria-hidden="true"></span>
+          </div>
+
+          <!-- Honeypot: invisible to humans, irresistible to bots -->
+          <div class="hp" aria-hidden="true">
+            <label for="website_url">Website</label>
+            <input id="website_url" name="website_url" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          <input type="hidden" name="source" value="silenthorizon.in" />
+
+          <button class="btn btn--primary btn--block" type="submit" id="submitBtn">
+            <span class="btn__label">Enter the Horizon</span>
+            <svg class="btn__arrow" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+            <span class="btn__spinner" aria-hidden="true"></span>
+          </button>
+
+          <p class="form__note">By submitting you agree to be contacted about your enquiry. No newsletters. No noise.</p>
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ════════════════════════════ FOOTER ════════════════════════════ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="28" height="28">
+          <defs>
+            <linearGradient id="footGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#5ef0ff" /><stop offset=".5" stop-color="#8b6bff" /><stop offset="1" stop-color="#ff5fce" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="32" cy="32" rx="24" ry="8.5" fill="none" stroke="url(#footGrad)" stroke-width="2.5" transform="rotate(-24 32 32)" />
+          <circle cx="32" cy="32" r="8.5" fill="url(#footGrad)" />
+        </svg>
+      </span>
+      <p><strong>Silent Horizon Info Tech</strong><br /><span>Immersive websites, engineered.</span></p>
+    </div>
+
+    <nav class="footer__links" aria-label="Footer">
+      <a href="#about">About</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <p class="footer__legal">© <span id="year">2026</span> Silent Horizon Info Tech. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

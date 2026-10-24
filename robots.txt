@@ -1,0 +1,6 @@
+# Silent Horizon Info Tech
+User-agent: *
+Allow: /
+
+# Update this line if you deploy to a different domain.
+Sitemap: https://silenthorizon.in/sitemap.xml
